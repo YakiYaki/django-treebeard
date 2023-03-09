@@ -10,6 +10,9 @@
 {% block extrahead %}
     {{ block.super }}
     <script src="{% url 'admin:jsi18n' %}"></script>
+    <script>
+        csrfCookieHttpOnly = "{% firstof csrf_cookie_httponly False %}" === "True";
+    </script>
     <script src="{% static 'treebeard/treebeard-admin.js' %}"></script>
 {% endblock %}
 

@@ -46,6 +46,7 @@ class TreeAdmin(admin.ModelAdmin):
         lacks_request = ('request' not in extra_context and not request_context)
         if lacks_request:
             extra_context['request'] = request
+        extra_context['csrf_cookie_httponly'] = settings.CSRF_COOKIE_HTTPONLY
         return super().changelist_view(request, extra_context)
 
     def get_urls(self):
